@@ -1,26 +1,20 @@
 # Do the necessary imports
 import argparse
-import shutil
-import base64
-from datetime import datetime
 import os
-import cv2
-import numpy as np
-import socketio
+import shutil
+import time
+from datetime import datetime
+
 import eventlet
 import eventlet.wsgi
-from PIL import Image
-from flask import Flask
-from io import BytesIO, StringIO
-import json
-import pickle
 import matplotlib.image as mpimg
-import time
+import numpy as np
+import socketio
+from flask import Flask
 
-# Import functions for perception and decision making
-from perception import perception_step
-from decision import decision_step
-from supporting_functions import update_rover, create_output_images
+from lib.decision import decision_step
+from lib.perception import perception_step
+from lib.supporting_functions import update_rover, create_output_images
 
 # Initialize socketio server and Flask application
 # (learn more at: https://python-socketio.readthedocs.io/en/latest/)
