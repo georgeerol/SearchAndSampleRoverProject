@@ -43,7 +43,6 @@ def to_polar_coords(x_pixel, y_pixel):
 
 # Define a function to apply a rotation to pixel positions
 def rotate_pix(xpix, ypix, yaw):
-    # TODO
     # Convert yaw to radians
     yaw_rad = yaw * np.pi / 180
     # Apply a rotation
@@ -55,7 +54,6 @@ def rotate_pix(xpix, ypix, yaw):
 
 # Define a function to perform a translation
 def translate_pix(xpix_rot, ypix_rot, xpos, ypos, scale):
-    # TODO:
     # Apply a scaling and a translation
     xpix_translated = (xpix_rot / scale) + xpos
     ypix_translated = (ypix_rot / scale) + ypos
