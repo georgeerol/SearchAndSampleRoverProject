@@ -160,3 +160,4 @@ The sample logs are located in the [test_dataset folder](https://github.com/foul
 * After mapping the entire map the Rover should return to his initial position by saving it's starting x and y position.
 * Fix the simulation so it doesn't crash often.
 * Add Unit Test for each methods from the perception.py so one can see how each methods works and not spend too much time on manual regression test.
+* Merge this project mapping with the [BlueBot project](https://github.com/fouliex/BlueBot)
