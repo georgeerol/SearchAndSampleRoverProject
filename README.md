@@ -51,6 +51,23 @@ Below is Color threshold to identify navigable terrain/obstacles/rock samples ap
 *	A Threshold of RGB > 160 does a nice job of identifying ground pixels only
 *	A Minimum Threshold of RGB (199,174,36) and maximum threshold of RGB (137,111,13) for rock
 *	A minimum obstacle threshold of RGB (2,2,2) and maximum obstacle threshold of RGB (45,45,45)
+```
+# Identify pixels above the threshold
+# Threshold of RGB > 160 does a nice job of identifying ground pixels only
+def color_thresh(img, rgb_threshold_min=(160, 160, 160), rgb_threshold_max=(255, 255, 255)):
+    # Create an array of zeros same xy size as img, but single channel
+    color_select = np.zeros_like(img[:, :, 0])
+    # Require that each pixel be above all three threshold values in RGB
+    # above_thresh will now contain a boolean array with "True"
+    # where threshold was met
+    above_thresh = (img[:, :, 0] >= rgb_threshold_min[0]) & (img[:, :, 0] <= rgb_threshold_max[0]) & \
+                   (img[:, :, 1] >= rgb_threshold_min[1]) & (img[:, :, 1] <= rgb_threshold_max[1]) & \
+                   (img[:, :, 2] >= rgb_threshold_min[2]) & (img[:, :, 2] <= rgb_threshold_max[2])
+    # Index the array of zeros with the boolean array and set to 1
+    color_select[above_thresh] = 1
+    # Return the binary image
+    return color_select
+    ```
 
 #### Perspective Transform
 From the Color Threshold the Rover was able to distinguish between obstacles, where to navigate and what’s a rock. However to know where and obstacle and where a rock is located, the perspective transform was use to each image that is provided from the rover camera to pinpoint the x and y position of each obstacles and rocks.
