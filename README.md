@@ -3,7 +3,7 @@
 # Search and Sample Return Project
 ![alt text][image_0] 
 
-This project is modeled after the [NASA sample return challenge](https://www.nasa.gov/directorates/spacetech/centennial_challenges/sample_return_robot/index.html) and provides first hand experience with the three essential elements of robotics:
+This [Udacity clone project](https://github.com/udacity/RoboND-Rover-Project) is modeled after the [NASA sample return challenge](https://www.nasa.gov/directorates/spacetech/centennial_challenges/sample_return_robot/index.html), and provides first hand experience with the three essential elements of robotics:
 *   Perception
 *   Decision Making
 *   Actuation
@@ -129,3 +129,17 @@ The simulator was ran on a resolution of 800x600 with the graphics set to Good.
 From these settings the rover was able to map most of the map with fidelity from 60% to 70% and find the location of rocks from his navigation path.
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results!  Make a note of your simulator settings in your writeup when you submit the project.**
+
+## Rover project test Video
+The videos are located in the [output folder](https://github.com/fouliex/SearchAndSampleRoverProject/tree/master/output)
+
+## Rover Capture images
+The images are located in the [calibration_image folder](https://github.com/fouliex/SearchAndSampleRoverProject/tree/master/calibration_images)
+
+## Sample logs
+The sample logs are located in the [test_dataset folder](https://github.com/fouliex/SearchAndSampleRoverProject/tree/master/test_dataset)
+
+## Future work
+* Make the Rover pick up the rocks when it sees them.
+* After mapping the entire map the Rover should return to his initial position.
+* Fix the simulation so it doesn't crash often
