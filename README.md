@@ -52,7 +52,7 @@ Below is Color threshold to identify navigable terrain/obstacles/rock samples ap
 *	A Minimum Threshold of RGB (199,174,36) and maximum threshold of RGB (137,111,13) for rock
 *	A minimum obstacle threshold of RGB (2,2,2) and maximum obstacle threshold of RGB (45,45,45)
 ##### Color Threshold method
-```
+```python
 def color_thresh(img, rgb_threshold_min=(160, 160, 160), rgb_threshold_max=(255, 255, 255)):
     color_select = np.zeros_like(img[:, :, 0])
     above_thresh = (img[:, :, 0] >= rgb_threshold_min[0]) & (img[:, :, 0] <= rgb_threshold_max[0]) & \
