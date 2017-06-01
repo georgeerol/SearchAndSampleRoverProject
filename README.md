@@ -103,8 +103,22 @@ def rover_coords(binary_img):
     return x_pixel, y_pixel
 ```
 
-#### Pixel to world map
-The threshold images pixels values to rover centric cords are done for the terrain, rock and obstacles. The function rover_coords returns the x and y position for each of the white pixel from a threshold image then the function pix_to_world()  converts the rover coordinates to the coordinates of the world, so showing what the rover camera is filming.
+#### Pixel to World Map
+The threshold images pixels values to rover centric cords are done for the terrain, rock and obstacles.
+The method `rover_coords` returns the x and y position for each of the white pixel from a threshold image then the function `pix_to_world` which converts the rover coordinates to the coordinates of the world, so showing what the rover camera is filming.
+###### Pixel to world map method:
+```python
+def pix_to_world(xpix, ypix, xpos, ypos, yaw, world_size, scale):
+    # Apply rotation
+    xpix_rot, ypix_rot = rotate_pix(xpix, ypix, yaw)
+    # Apply translation
+    xpix_tran, ypix_tran = translate_pix(xpix_rot, ypix_rot, xpos, ypos, scale)
+    # Perform rotation, translation and clipping all at once
+    x_pix_world = np.clip(np.int_(xpix_tran), 0, world_size - 1)
+    y_pix_world = np.clip(np.int_(ypix_tran), 0, world_size - 1)
+    # Return the result
+    return x_pix_world, y_pix_world
+```
 
 **See the [Rover Project Test Notebook](https://github.com/fouliex/SearchAndSampleRoverProject/blob/master/code/Rover_Project_Test_Notebook.ipynb)  for all the mapping source code**
 ### Navigation
