@@ -135,7 +135,7 @@ The lib folder contains the `perception.py`, `decision.py` and `supporting_funct
 ## Simulation Settings and Results
 The simulator was ran on a resolution of 800x600 with the graphics set to Good.
 From these settings the rover was able to map most of the map with fidelity from 60% to 70% and find the location of rocks from his navigation path.
-###### Simulation settings and results image
+###### Simulation settings and result image
 ![Result Image](https://github.com/fouliex/SearchAndSampleRoverProject/blob/master/misc/result_image.png)
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results!**
@@ -153,5 +153,5 @@ The sample logs are located in the [test_dataset folder](https://github.com/foul
 * Make the Rover pick up the rocks when it sees them.
 * After mapping the entire map the Rover should return to his initial position by saving it's starting x and y position.
 * Fix the simulation so it doesn't crash often.
-* Add Unit Test for each methods from the perception.py so one can see how each methods works and not spend too much time on manual regression test.
+* Add Unit Test for each methods from the perception.py so one can see how each methods work and not spend too much time on manual regression test.
 * Merge this project mapping with the [BlueBot project](https://github.com/fouliex/BlueBot)
