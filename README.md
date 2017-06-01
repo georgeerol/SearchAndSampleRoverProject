@@ -51,14 +51,58 @@ Below is Color threshold to identify navigable terrain/obstacles/rock samples ap
 *	A Threshold of RGB > 160 does a nice job of identifying ground pixels only
 *	A Minimum Threshold of RGB (199,174,36) and maximum threshold of RGB (137,111,13) for rock
 *	A minimum obstacle threshold of RGB (2,2,2) and maximum obstacle threshold of RGB (45,45,45)
+##### Color Threshold method:
+```python
+def color_thresh(img, rgb_threshold_min=(160, 160, 160), rgb_threshold_max=(255, 255, 255)):
+    color_select = np.zeros_like(img[:, :, 0])
+    above_thresh = (img[:, :, 0] >= rgb_threshold_min[0]) & (img[:, :, 0] <= rgb_threshold_max[0]) & \
+                   (img[:, :, 1] >= rgb_threshold_min[1]) & (img[:, :, 1] <= rgb_threshold_max[1]) & \
+                   (img[:, :, 2] >= rgb_threshold_min[2]) & (img[:, :, 2] <= rgb_threshold_max[2])
+    color_select[above_thresh] = 1
+    return color_select
+```
 
 #### Perspective Transform
 From the Color Threshold the Rover was able to distinguish between obstacles, where to navigate and what’s a rock. However to know where and obstacle and where a rock is located, the perspective transform was use to each image that is provided from the rover camera to pinpoint the x and y position of each obstacles and rocks.
 For the perspective transform to be probably transform a source and destination function was created and use so the image could be properly warped.
+##### Perspective Transform method:
+```python
+def perspect_transform(img, src, dst):
+    M = cv2.getPerspectiveTransform(src, dst)
+    warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))
+    return warped
+```
+##### Source and Destination method:
+###### Source
+```python
+def get_source():
+    return np.float32([[14, 140], [301, 140], [200, 96], [118, 96]])
+```
+###### Destination
+```python
+def get_destination(img):
+    dst_size = 5
+    bottom_offset = 6
+    img_size = (img.shape[1], img.shape[0])
+    destination = np.float32([[img_size[0] / 2 - dst_size, img_size[1] - bottom_offset],
+                              [img_size[0] / 2 + dst_size, img_size[1] - bottom_offset],
+                              [img_size[0] / 2 + dst_size, img_size[1] - 2 * dst_size - bottom_offset],
+                              [img_size[0] / 2 - dst_size, img_size[1] - 2 * dst_size - bottom_offset],
+                              ])
+    return destination
+```
 
 #### Rover Centric Coordinates
 From the Rover camera all navigable terrain pixel positions are extract and then transform to “rover-centric” coordinates.
 Coordinate system allow us to describe the positions of objects in an environment with respect to the robot, in our case the rover’s camera. Meaning a coordinate frame where the rover camera is at (x,y) = (0,0).
+##### Rover Centric Coordinates method:
+```python
+def rover_coords(binary_img):
+    ypos, xpos = binary_img.nonzero() 
+    x_pixel = np.absolute(ypos - binary_img.shape[0]).astype(np.float)
+    y_pixel = -(xpos - binary_img.shape[0]).astype(np.float)
+    return x_pixel, y_pixel
+```
 
 #### Pixel to world map
 The threshold images pixels values to rover centric cords are done for the terrain, rock and obstacles. The function rover_coords returns the x and y position for each of the white pixel from a threshold image then the function pix_to_world()  converts the rover coordinates to the coordinates of the world, so showing what the rover camera is filming.
