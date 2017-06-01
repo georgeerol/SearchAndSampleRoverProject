@@ -109,14 +109,10 @@ The method `rover_coords` returns the x and y position for each of the white pix
 ###### Pixel to world map method:
 ```python
 def pix_to_world(xpix, ypix, xpos, ypos, yaw, world_size, scale):
-    # Apply rotation
     xpix_rot, ypix_rot = rotate_pix(xpix, ypix, yaw)
-    # Apply translation
     xpix_tran, ypix_tran = translate_pix(xpix_rot, ypix_rot, xpos, ypos, scale)
-    # Perform rotation, translation and clipping all at once
     x_pix_world = np.clip(np.int_(xpix_tran), 0, world_size - 1)
     y_pix_world = np.clip(np.int_(ypix_tran), 0, world_size - 1)
-    # Return the result
     return x_pix_world, y_pix_world
 ```
 
