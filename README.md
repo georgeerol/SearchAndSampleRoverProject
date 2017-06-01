@@ -40,8 +40,6 @@ python drive_rover.py
 Then launch the simulator and choose "Autonomous Mode".  The rover should drive itself now!
 
 ## Writeup
-The goal of this project is to perform autonomous navigation and mapping. With each new image we receive from the rover's camera, we can make decision about sending commands like throttle, brake and steering to rover therefore it becomes autonomous.
-
 ### Mapping
 
 #### Color Threshold
