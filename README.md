@@ -44,7 +44,7 @@ Then launch the simulator and choose "Autonomous Mode." The rover should drive i
 
 #### Color Threshold
 The mapping consisted of several steps, but the first one had to do with reading images from the rover camera. Training images were acquired from the simulation to calibrate and determine where the rover can drive. The simulation training environment consists of sand on the ground, which is very light in color and everything else, obstacles, in the environment are dark. Therefore Color Threshold was set to determine where the rover can drive by figuring out where the areas of lighter color are. The image processing was very simple; an RGB threshold was applied to the image to get it to recognize the different objects in the simulation environment.
-Below are samples of color threshold used to identify navigable terrain/obstacles/rock.
+Below are samples of color thresholds used to identify navigable terrain/obstacles/rock.
 
 *	A Threshold of RGB > 150 does a nice job of identifying ground pixels only
 *	A Minimum Threshold of RGB (199,174,36) and maximum threshold of RGB (137,111,13) for rock
