@@ -95,6 +95,14 @@ def get_destination(img):
 #### Rover Centric Coordinates
 From the Rover camera all navigable terrain pixel positions are extract and then transform to “rover-centric” coordinates.
 Coordinate system allow us to describe the positions of objects in an environment with respect to the robot, in our case the rover’s camera. Meaning a coordinate frame where the rover camera is at (x,y) = (0,0).
+##### Rover Centric Coordinates method:
+```python
+def rover_coords(binary_img):
+    ypos, xpos = binary_img.nonzero() 
+    x_pixel = np.absolute(ypos - binary_img.shape[0]).astype(np.float)
+    y_pixel = -(xpos - binary_img.shape[0]).astype(np.float)
+    return x_pixel, y_pixel
+```
 
 #### Pixel to world map
 The threshold images pixels values to rover centric cords are done for the terrain, rock and obstacles. The function rover_coords returns the x and y position for each of the white pixel from a threshold image then the function pix_to_world()  converts the rover coordinates to the coordinates of the world, so showing what the rover camera is filming.
