@@ -39,8 +39,6 @@ python drive_rover.py
 
 Then launch the simulator and choose "Autonomous Mode".  The rover should drive itself now!
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results!  Make a note of your simulator settings in your writeup when you submit the project.**
-
 ## Writeup
 The goal of this project is to perform autonomous navigation and mapping. With each new image we receive from the rover's camera, we can make decision about sending commands like throttle, brake and steering to rover therefore it becomes autonomous.
 
@@ -83,3 +81,5 @@ The lib folder contains the `perception.py`, `decision.py` and `supporting_funct
 ## Simulation Settings and Results
 The simulator was ran on a resolution of 800x600 with the graphics set to Good.
 From these settings the rover was able to map most of the map with fidelity from 60% to 70% and find the location of rocks from his navigation path.
+
+**Note: running the simulator with different choices of resolution and graphics quality may produce different results!  Make a note of your simulator settings in your writeup when you submit the project.**
