@@ -111,9 +111,11 @@ The threshold images pixels values to rover centric cords are done for the terra
 ### Navigation
 
 #### Main
+###### [Main Folder](https://github.com/fouliex/SearchAndSampleRoverProject/tree/master/code)
 The main script use for autonomous navigation and mapping is under the code folder, `drive_rover.py`.
 
-#### Lib
+#### Libaries
+###### [Lib Folder](https://github.com/fouliex/SearchAndSampleRoverProject/tree/master/lib)
 The lib folder contains the `perception.py`, `decision.py` and `supporting_function.py`.
 
 * `perception.py` contains the method `perception_step` which contains all the analyzing tests done from the Jupyter notebook under the `process_image` method.
