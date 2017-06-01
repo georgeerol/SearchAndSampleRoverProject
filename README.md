@@ -107,10 +107,11 @@ def rover_coords(binary_img):
 #### Pixel to world map
 The threshold images pixels values to rover centric cords are done for the terrain, rock and obstacles. The function rover_coords returns the x and y position for each of the white pixel from a threshold image then the function pix_to_world()  converts the rover coordinates to the coordinates of the world, so showing what the rover camera is filming.
 
+**See the [Rover Project Test Notebook](https://github.com/fouliex/SearchAndSampleRoverProject/blob/master/code/Rover_Project_Test_Notebook.ipynb)  for all the mapping source code**
 ### Navigation
 
 #### Main
-The main script use for autonomous navigation and mapping is under the code folder, drive_rover.py.
+The main script use for autonomous navigation and mapping is under the code folder, `drive_rover.py`.
 
 #### Lib
 The lib folder contains the `perception.py`, `decision.py` and `supporting_function.py`.
@@ -120,7 +121,7 @@ The lib folder contains the `perception.py`, `decision.py` and `supporting_funct
 *	`supportings_functions.py` contain 3 main methods:
      * `create_output_images` method is where the `Rover.worldmap` is compared with the ground map and gets converted, along with `Rover.vision_image`, into base64 strings to send back to the rover.
      * `RoverState` class is use to keep track of telemetry values and results from the analyzing test from the Jupyter notebook.
-     * `Telemetry`  method runs every time the simulator sends a new batch of data. It updates the Rover() object with new telemetry values.
+     * `telemetry`  method runs every time the simulator sends a new batch of data. It updates the Rover() object with new telemetry values.
 
 ## Simulation Settings and Results
 The simulator was ran on a resolution of 800x600 with the graphics set to Good.
