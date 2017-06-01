@@ -13,7 +13,7 @@ The first step is to download the simulator build that's appropriate for your op
 One can test out the simulator by opening it up and choosing "Training Mode".
 
 ## Dependencies
-Python 3.5 and Jupyter Notebooks is needed for this project.  The best way to get setup with these is to use Anaconda and the [RoboND-Python-Starterkit](https://github.com/ryan-keenan/RoboND-Python-Starterkit).
+Python 3.5 and Jupyter Notebooks is needed for this project.  The best way to get setup with these is to use Anaconda and the [RoboND-Python-Starterkit](https://github.com/ryan-keenan/RoboND-Python-Starterkit) and use [PyCharm IDE](https://www.jetbrains.com/pycharm/) for coding and debugging.
 Here is a great link for learning more about [Anaconda and Jupyter Notebooks](https://classroom.udacity.com/courses/ud1111)
 
 ## Data Analysis
