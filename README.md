@@ -1,5 +1,5 @@
 [//]: # (Image References)
-[image_0]: ./misc/rover_image.jpg
+[image_0]: ./misc/rover_image.gif
 # Search and Sample Return Project
 ![alt text][image_0] 
 
@@ -141,6 +141,8 @@ The lib folder contains the `perception.py`, `decision.py` and `supporting_funct
 ## Simulation Settings and Results
 The simulator was ran on a resolution of 800x600 with the graphics set to Good.
 From these settings the rover was able to map most of the map with fidelity from 60% to 70% and find the location of rocks from his navigation path.
+###### Simulation settings and results image
+![Result Image](./misc/result_image.png)
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results!  Make a note of your simulator settings in your writeup when you submit the project.**
 
