@@ -138,7 +138,7 @@ From these settings the rover was able to map most of the map with fidelity from
 ###### Simulation settings and results image
 ![Result Image](https://github.com/fouliex/SearchAndSampleRoverProject/blob/master/misc/result_image.png)
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results!  Make a note of your simulator settings in your writeup when you submit the project.**
+**Note: running the simulator with different choices of resolution and graphics quality may produce different results!**
 
 ## Rover project test Video
 The videos are located in the [output folder](https://github.com/fouliex/SearchAndSampleRoverProject/tree/master/output)
