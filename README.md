@@ -51,7 +51,7 @@ Below is Color threshold to identify navigable terrain/obstacles/rock samples ap
 *	A Threshold of RGB > 160 does a nice job of identifying ground pixels only
 *	A Minimum Threshold of RGB (199,174,36) and maximum threshold of RGB (137,111,13) for rock
 *	A minimum obstacle threshold of RGB (2,2,2) and maximum obstacle threshold of RGB (45,45,45)
-##### Color Threshold method
+##### Color Threshold method:
 ```python
 def color_thresh(img, rgb_threshold_min=(160, 160, 160), rgb_threshold_max=(255, 255, 255)):
     color_select = np.zeros_like(img[:, :, 0])
@@ -65,6 +65,32 @@ def color_thresh(img, rgb_threshold_min=(160, 160, 160), rgb_threshold_max=(255,
 #### Perspective Transform
 From the Color Threshold the Rover was able to distinguish between obstacles, where to navigate and what’s a rock. However to know where and obstacle and where a rock is located, the perspective transform was use to each image that is provided from the rover camera to pinpoint the x and y position of each obstacles and rocks.
 For the perspective transform to be probably transform a source and destination function was created and use so the image could be properly warped.
+##### Perspective Transform method:
+```python
+def perspect_transform(img, src, dst):
+    M = cv2.getPerspectiveTransform(src, dst)
+    warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))
+    return warped
+```
+##### Source and Destination method:
+###### Source
+```python
+def get_source():
+    return np.float32([[14, 140], [301, 140], [200, 96], [118, 96]])
+```
+###### Destination
+```python
+def get_destination(img):
+    dst_size = 5
+    bottom_offset = 6
+    img_size = (img.shape[1], img.shape[0])
+    destination = np.float32([[img_size[0] / 2 - dst_size, img_size[1] - bottom_offset],
+                              [img_size[0] / 2 + dst_size, img_size[1] - bottom_offset],
+                              [img_size[0] / 2 + dst_size, img_size[1] - 2 * dst_size - bottom_offset],
+                              [img_size[0] / 2 - dst_size, img_size[1] - 2 * dst_size - bottom_offset],
+                              ])
+    return destination
+```
 
 #### Rover Centric Coordinates
 From the Rover camera all navigable terrain pixel positions are extract and then transform to “rover-centric” coordinates.
